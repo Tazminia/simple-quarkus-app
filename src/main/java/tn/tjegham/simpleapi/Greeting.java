@@ -3,11 +3,12 @@ package tn.tjegham.simpleapi;
 import java.util.Date;
 
 public class Greeting {
-    public String message;
-    public Date creationDate;
+    public static final String DEFAULT_GREETING_MESSAGE = "Default greeting message";
+    private String message;
+    private final Date creationDate;
 
     public Greeting(){
-        this.message = "Default greeting message";
+        this.message = DEFAULT_GREETING_MESSAGE;
         this.creationDate = new Date();
     }
 
@@ -24,5 +25,17 @@ public class Greeting {
         final Greeting greeting = (Greeting) o;
         if (!(this.message.equals(greeting.message))) return false;
         return true;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
     }
 }
